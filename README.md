@@ -42,13 +42,13 @@ See instructions below on how to use this script.
 #### Train a new agent manually
 To initialize a new agent and begin a game loop, simply run:
 
-    python play.py -a q                (Q-learner)
-    python play.py -a s                (Sarsa-learner)
+    python3 play.py -a q                (Q-learner)
+    python3 play.py -a s                (Sarsa-learner)
 
 This will initialize the game and allow you to train the agent manually by playing against the agent yourself. In the process of playing, you will be storing the new agent state with each game iteration. Use the argument `-p` to specify a path where the agent pickle should be saved:
 
 
-    python play.py -a q -p my_agent_path.pkl
+    python3 play.py -a q -p my_agent_path.pkl
 
 
 When unspecified, the path is set to either "q_agent.pkl" or "sarsa_agent.pkl" depending on agent type. If the file already exists, you'll be asked to overwrite.
@@ -56,15 +56,15 @@ When unspecified, the path is set to either "q_agent.pkl" or "sarsa_agent.pkl" d
 #### Train a new agent automatically via teacher
 To initialize a new RL agent and train it automatically with a teacher agent, use the flag `-t` followed by the number of game iterations you would like to train for:
 
-    python play.py -a q -t 5000
+    python3 play.py -a q -t 5000
 
 Again, specify the pickle save path with the `-p` option.
 
 #### Load an existing agent and continue training
 To load an existing agent and continue training, use the `-l` flag:
 
-    python play.py -a q -l             (load agent and train manually)
-    python play.py -a q -l -t 5000     (load agent and train via teacher)
+    python3 play.py -a q -l             (load agent and train manually)
+    python3 play.py -a q -l -t 5000     (load agent and train via teacher)
 
 The agent will continue to learn and its pickle file will be overwritten. 
 
@@ -74,4 +74,4 @@ For this use case, the argument `-a` is only used to define a default agent path
 #### Load a trained agent and view reward history plot
 Finally, to load a stored agent and view a plot of its cumulative reward history, use the script plot_agent_reward.py:
 
-    python plot_agent_reward.py -p q_agent.pkl
+    python3 plot_agent_reward.py -p q_agent.pkl
